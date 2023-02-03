@@ -1,8 +1,8 @@
-package com.imdb;
+package com.imdb.movie;
 
 import java.util.*;
 import java.util.stream.Collectors;
-public class MovieService {
+public class MovieUtils {
     public List<Movie> sortByRating(List<Movie> movies) {
         Comparator<Movie> ratingComparator = Comparator.comparingDouble(Movie::getMovieRating);
         Comparator<Movie> nameComparator = Comparator.comparing(Movie::getName);

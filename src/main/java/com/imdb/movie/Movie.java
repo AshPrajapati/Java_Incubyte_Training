@@ -1,54 +1,29 @@
-package com.imdb;
+package com.imdb.movie;
 
 import java.util.List;
 
-class Director{
-    private String name;
-    public Director(){}
-    public Director(String name)
-    {
-        this.name = name;
-    }
 
-    public String getName() {
-        return name;
-    }
+public abstract class Movie{
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Director{" +
-                "name='" + name + '\'' +
-                '}';
-    }
-}
-abstract class Movie{
-
-    abstract String getOrigin();
+    private int id;
+    public abstract String getOrigin();
     private String Name;
     private List<Director> directors;
     private List<String> genres;
     private int movieRating;
 
+    private int trailerId;
+
     public Movie() {
 
     }
-    public Movie(String name, List<Director> directors, List<String> genres, int movieRating) {
+    public Movie(int id,String name, List<Director> directors, List<String> genres, int movieRating, int trailerId) {
+        this.id = id;
         Name = name;
         this.directors = directors;
         this.genres = genres;
         this.movieRating = movieRating;
-    }
-
-    public void watchTrailer(){
-            getTrailer();
-    }
-
-    private void getTrailer() throws RuntimeException {
-    throw new TrailerNotFoundException("TrailerNotFound");
+        this.trailerId = trailerId;
     }
 
     public String getName() {

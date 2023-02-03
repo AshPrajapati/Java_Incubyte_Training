@@ -2,52 +2,49 @@
 
 import java.util.*;
 import java.util.stream.Collectors;
-
-<span class="fc" id="L6">public class MovieService {</span>
+<span class="nc" id="L5">public class MovieService {</span>
     public List&lt;Movie&gt; sortByRating(List&lt;Movie&gt; movies) {
-<span class="fc" id="L8">        Comparator&lt;Movie&gt; ratingComparator = Comparator.comparingDouble(Movie::getMovieRating);</span>
-<span class="fc" id="L9">        Comparator&lt;Movie&gt; nameComparator = Comparator.comparing(Movie::getName);</span>
-<span class="fc" id="L10">        return movies.stream().sorted(nameComparator).collect(Collectors.toList());</span>
+<span class="nc" id="L7">        Comparator&lt;Movie&gt; ratingComparator = Comparator.comparingDouble(Movie::getMovieRating);</span>
+<span class="nc" id="L8">        Comparator&lt;Movie&gt; nameComparator = Comparator.comparing(Movie::getName);</span>
+<span class="nc" id="L9">        return movies.stream().sorted(nameComparator).collect(Collectors.toList());</span>
     }
 
     public Map&lt;String, Long&gt; getCount(List&lt;Movie&gt; movies) {
-<span class="fc" id="L14">        return movies.stream().</span>
-<span class="fc" id="L15">                map(movie -&gt; movie.getDirectors()).</span>
-<span class="fc" id="L16">                flatMap(List::stream).</span>
-<span class="fc" id="L17">                collect(Collectors.groupingBy(Director::getName, Collectors.counting()));</span>
+<span class="nc" id="L13">        return movies.stream().</span>
+<span class="nc" id="L14">                map(movie -&gt; movie.getDirectors()).</span>
+<span class="nc" id="L15">                flatMap(List::stream).</span>
+<span class="nc" id="L16">                collect(Collectors.groupingBy(Director::getName, Collectors.counting()));</span>
     }
 
     public Map&lt;String, Long&gt; getGenreCount(List&lt;Movie&gt; movies) {
 
-<span class="fc" id="L22">        return movies.stream().</span>
-<span class="fc" id="L23">                map(movie -&gt; movie.getGenres()).</span>
-<span class="fc" id="L24">                flatMap(List::stream).</span>
-<span class="fc" id="L25">                collect(Collectors.groupingBy(g -&gt; g, Collectors.counting()));</span>
+<span class="nc" id="L21">        return movies.stream().</span>
+<span class="nc" id="L22">                map(movie -&gt; movie.getGenres()).</span>
+<span class="nc" id="L23">                flatMap(List::stream).</span>
+<span class="nc" id="L24">                collect(Collectors.groupingBy(g -&gt; g, Collectors.counting()));</span>
     }
 
     public Map&lt;String,List&lt;Movie&gt;&gt; getMovieByGenre(List&lt;Movie&gt; movies) {
-<span class="fc" id="L29">        Map&lt;String,List&lt;Movie&gt;&gt; mp = new HashMap&lt;&gt;();</span>
-<span class="fc bfc" id="L30" title="All 2 branches covered.">        for(Movie m:movies)</span>
+<span class="nc" id="L28">        Map&lt;String,List&lt;Movie&gt;&gt; mp = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        for(Movie m:movies)</span>
         {
-<span class="fc bfc" id="L32" title="All 2 branches covered.">            for(String genreName:m.getGenres())</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">            for(String genreName:m.getGenres())</span>
             {
-<span class="fc bfc" id="L34" title="All 2 branches covered.">                if(mp.containsKey(genreName))</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">                if(mp.containsKey(genreName))</span>
                 {
-<span class="fc" id="L36">                    ArrayList&lt;Movie&gt; lst = (ArrayList&lt;Movie&gt;) mp.get(genreName);</span>
-<span class="fc" id="L37">                    lst.add(m);</span>
-<span class="fc" id="L38">                    mp.put(genreName,lst);</span>
-
-<span class="fc" id="L40">                }</span>
-                else {
-<span class="fc" id="L42">                    List&lt;Movie&gt; lst = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L43">                    lst.add(m);</span>
-<span class="fc" id="L44">                    mp.put(genreName,lst);</span>
+<span class="nc" id="L35">                    ArrayList&lt;Movie&gt; lst = (ArrayList&lt;Movie&gt;) mp.get(genreName);</span>
+<span class="nc" id="L36">                    lst.add(m);</span>
+<span class="nc" id="L37">                    mp.put(genreName,lst);</span>
+<span class="nc" id="L38">                }</span>
+                else
+                {
+<span class="nc" id="L41">                    List&lt;Movie&gt; lst = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L42">                    lst.add(m);</span>
+<span class="nc" id="L43">                    mp.put(genreName,lst);</span>
                 }
-<span class="fc" id="L46">            }</span>
-
-<span class="fc" id="L48">        }</span>
-<span class="fc" id="L49">        return mp;</span>
-
+<span class="nc" id="L45">            }</span>
+<span class="nc" id="L46">        }</span>
+<span class="nc" id="L47">        return mp;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

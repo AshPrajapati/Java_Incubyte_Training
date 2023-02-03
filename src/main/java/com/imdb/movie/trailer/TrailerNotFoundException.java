@@ -1,4 +1,4 @@
-package com.imdb;
+package com.imdb.movie.trailer;
 
 public class TrailerNotFoundException extends RuntimeException {
     public TrailerNotFoundException(String message) {
