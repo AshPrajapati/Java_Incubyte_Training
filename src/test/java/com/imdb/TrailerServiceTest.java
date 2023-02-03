@@ -14,7 +14,7 @@ class TrailerServiceTest {
         TrailerRepository trailerRepository = Mockito.mock(TrailerRepository.class);
         String trailerUrl = "https://trailers.com/dhamal";
         Trailer trailer = new Trailer(trailerUrl);
-        Mockito.when(trailerRepository.fetchTrailer(1)).thenReturn(trailer);
+        Mockito.when(trailerRepository.getById(1)).thenReturn(trailer);
 
         TrailerService trailerService = new TrailerService(trailerRepository);
 
@@ -22,7 +22,7 @@ class TrailerServiceTest {
         String actualUrl = trailerService.getTrailer(1);
 
         //then
-        Mockito.verify(trailerRepository).fetchTrailer(1);
+        Mockito.verify(trailerRepository).getById(1);
         Assertions.assertThat(actualUrl).isEqualTo(trailerUrl);
 
     }

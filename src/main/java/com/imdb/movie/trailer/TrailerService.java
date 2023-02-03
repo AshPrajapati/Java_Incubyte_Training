@@ -7,6 +7,6 @@ public class TrailerService {
         this.trailerRepository =M;
     }
     public String getTrailer(int id){
-        return this.trailerRepository.fetchTrailer(id).getUrl();
+        return trailerRepository.getById(id).getUrl();
     }
 }
