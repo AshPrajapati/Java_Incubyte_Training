@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.imdb.MovieTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-02-02T17:11:51" hostname="LAPTOP-4E2SUID8" time="0.491">
+  <properties/>
+  <testcase name="genreCount()" classname="com.imdb.MovieTest" time="0.435"/>
+  <testcase name="movieByGenre()" classname="com.imdb.MovieTest" time="0.04"/>
+  <testcase name="Sort by Rating" classname="com.imdb.MovieTest" time="0.005"/>
+  <testcase name="count()" classname="com.imdb.MovieTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
